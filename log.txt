@@ -1604,9 +1604,9 @@ found and reported 1 problems.
 
 Warnings: 1 unique messages, 1 total
 End of script. Logfile hash: bf827bd3d8
-CPU: user 0.72s system 0.36s, MEM: 217.89 MB total, 197.80 MB resident
+CPU: user 0.64s system 0.45s, MEM: 217.89 MB total, 197.80 MB resident
 Yosys 0.8+147 (git sha1 266511b2, clang 6.0.0-1ubuntu2 -fPIC -Os)
-Time spent: 71% 11x read_verilog (0 sec), 5% 6x techmap (0 sec), ...
+Time spent: 67% 11x read_verilog (0 sec), 8% 6x techmap (0 sec), ...
 nextpnr-ecp5 --45k --json blinky.json --basecfg ulx3s_empty.config \
         --lpf ulx3s_v20.lpf \
         --textcfg ulx3s_out.config
@@ -1615,9 +1615,9 @@ Info: Rule checker, verifying imported design
 Info: Checksum: 0x77638610
 
 Warning:     ignoring unsupported LPF command 'BLOCK RESETPATHS'
-Warning:     ignoring unsupported LPF command 'BLOCK ASYNCPATHS'
-Warning:     ignoring unsupported LPF command 'FREQUENCY PORT "clk_25mhz" 25 MHZ'
-Warning:     ignoring unsupported LPF command 'SYSCONFIG CONFIG_IOVOLTAGE=3.3 COMPRESS_CONFIG=ON MCCLK_FREQ=62 MASTER_SPI_PORT=ENABLE SLAVE_SPI_PORT=DISABLE SLAVE_PARALLEL_PORT=DISABLE'
+BLOCK ASYNCPATHS'ring unsupported LPF command '
+FREQUENCY PORT "clk_25mhz" 25 MHZ'LPF command '
+SYSCONFIG CONFIG_IOVOLTAGE=3.3 COMPRESS_CONFIG=ON MCCLK_FREQ=62 MASTER_SPI_PORT=ENABLE SLAVE_SPI_PORT=DISABLE SLAVE_PARALLEL_PORT=DISABLE'
 Warning: unmatched LPF 'LOCATE COMP' 'ftdi_rxd'
 Warning: unmatched LPF 'LOCATE COMP' 'ftdi_txd'
 Warning: unmatched LPF 'LOCATE COMP' 'ftdi_nrts'
@@ -1951,6 +1951,7 @@ Warning: unmatched LPF 'LOCATE COMP' 'user_programn'
 Warning: unmatched LPF 'IOBUF PORT' 'user_programn'
 Warning: unmatched LPF 'LOCATE COMP' 'shutdown'
 Warning: unmatched LPF 'IOBUF PORT' 'shutdown'
+ERROR: unexpected end of LPF file
 
 Info: Packing IOs..
 Info: pin 'wifi_gpio0$tr_io' constrained to Bel 'X0/Y62/PIOD'.
@@ -1980,10 +1981,10 @@ Info: Packing unpaired LUTs into a SLICE...
 Info: Packing unpaired FFs into a SLICE...
 Info: Promoting globals...
 Info:     promoting clock net clk_25mhz to global network
-Info: Checksum: 0xd23a38a7
+Info: Checksum: 0xcb31fd75
 
 Info: Annotating ports with timing budgets for target frequency 12.00 MHz
-Info: Checksum: 0x8489ff75
+Info: Checksum: 0xdc3e7e65
 
 Info: Device utilisation:
 Info:          TRELLIS_SLICE:    25/21924     0%
@@ -2013,7 +2014,7 @@ Info:                DQSBUFM:     0/   10     0%
 Info: Placed 17 cells based on constraints.
 Info: Creating initial placement for remaining 25 cells.
 Info:   initial placement placed 25/25 cells
-Info: Initial placement time 0.04s
+Info: Initial placement time 0.05s
 Info: Running simulated annealing placer.
 Info:   at iteration #1: temp = 10000.000000, cost = 4968, est tns = -67.00ns
 Info:   at iteration #5: temp = 4900.000000, cost = 6024, est tns = -89.59ns
@@ -2091,7 +2092,7 @@ Info:   at iteration #350: temp = 0.027075, cost = 141, est tns = 0.00ns
 Info:   at iteration #355: temp = 0.008872, cost = 141, est tns = 0.00ns
 Info:   at iteration #360: temp = 0.002907, cost = 141, est tns = 0.00ns
 Info:   at iteration #365: temp = 0.000953, cost = 141, est tns = 0.00ns
-Info: SA placement time 0.33s
+Info: SA placement time 0.40s
 
 Info: Max frequency for clock '$glbnet$clk_25mhz': 188.93 MHz (PASS at 12.00 MHz)
 
@@ -2120,7 +2121,7 @@ Info: [ 81288,  81613) |**
 Info: [ 81613,  81938) |****
 Info: [ 81938,  82263) |****
 Info: [ 82263,  82588) |******
-Info: Checksum: 0x4ffd36e1
+Info: Checksum: 0xb272ef74
 Info: Routing globals...
 Info:     routing clock net $glbnet$clk_25mhz using global 0
 
@@ -2131,8 +2132,8 @@ Info:            |   (re-)routed arcs  |   delta    | remaining
 Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs
 Info:        144 |        5        139 |    5   139 |         0
 Info: Routing complete.
-Info: Route time 0.25s
-Info: Checksum: 0xb990bd17
+Info: Route time 0.28s
+Info: Checksum: 0x1027b244
 
 Info: Critical path report for clock '$glbnet$clk_25mhz' (posedge -> posedge):
 Info: curr total
@@ -2199,9 +2200,8 @@ Info: [ 79583,  80047) |
 Info: [ 80047,  80511) |***
 Info: [ 80511,  80975) |**
 Info: [ 80975,  81439) |**
-Info: [ 81439,  81903) |********
-Warning: --basecfg is deprecated.
+hWarning: --basecfg is deprecated.
 If you are using a default baseconfig (from prjtrellis/misc/basecfgs), these are now embedded in nextpnr - please remove --basecfg.
 If you are using a non-standard baseconfig in a special application, switch to using --override-basecfg.
-338 warnings, 0 errors
+338 warnings, 1 error
 ecppack ulx3s_out.config ulx3s.bit
