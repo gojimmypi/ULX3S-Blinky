@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/blinky.json
+/.vs
+/ulx3s.bit
+/ulx3s_out.config
+/obj_dir
+/Diamond/dbi/.vdbs
+/Diamond/dbi/blinky_dbi.dir
+/Diamond/dbi
+/Diamond/blinky_tcr.dir
+/Diamond/.vs
