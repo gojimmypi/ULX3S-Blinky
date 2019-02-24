@@ -1,18 +1,18 @@
 BLOCK RESETPATHS;
 BLOCK ASYNCPATHS;
 ## ULX3S v1.7 patched towards v1.8
-
+#
 # The clock "usb" and "gpdi" sheet
 LOCATE COMP "clk_25mhz" SITE "G2";
 IOBUF  PORT "clk_25mhz" PULLMODE=NONE IO_TYPE=LVCMOS33;
 FREQUENCY PORT "clk_25mhz" 25 MHZ;
-
+#
 # JTAG and SPI FLASH voltage 3.3V and options to boot from SPI flash
 # write to FLASH possible any time from JTAG:
 # SYSCONFIG CONFIG_IOVOLTAGE=3.3 COMPRESS_CONFIG=ON MCCLK_FREQ=62 MASTER_SPI_PORT=ENABLE SLAVE_SPI_PORT=DISABLE SLAVE_PARALLEL_PORT=DISABLE;
 # write to FLASH possible from user bitstream:
 SYSCONFIG CONFIG_IOVOLTAGE=3.3 COMPRESS_CONFIG=ON MCCLK_FREQ=62 MASTER_SPI_PORT=DISABLE SLAVE_SPI_PORT=DISABLE SLAVE_PARALLEL_PORT=DISABLE;
-
+#
 ## USBSERIAL FTDI-FPGA serial port "usb" sheet
 LOCATE COMP "ftdi_rxd" SITE "L4"; # FPGA transmits to ftdi
 LOCATE COMP "ftdi_txd" SITE "M1"; # FPGA receives from ftdi
@@ -24,7 +24,7 @@ IOBUF  PORT "ftdi_txd" PULLMODE=UP IO_TYPE=LVCMOS33;
 IOBUF  PORT "ftdi_nrts" PULLMODE=UP IO_TYPE=LVCMOS33;
 IOBUF  PORT "ftdi_ndtr" PULLMODE=UP IO_TYPE=LVCMOS33;
 IOBUF  PORT "ftdi_txden" PULLMODE=UP IO_TYPE=LVCMOS33;
-
+#
 ## LED indicators "blinkey" and "gpio" sheet
 LOCATE COMP "led[7]" SITE "H3";
 LOCATE COMP "led[6]" SITE "E1";
@@ -42,7 +42,7 @@ IOBUF  PORT "led[4]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "led[5]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "led[6]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "led[7]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## Pushbuttons "blinkey", "flash", "power", "gpdi" sheet
 LOCATE COMP "btn[0]" SITE "D6"; # BTN_PWRn (inverted logic)
 LOCATE COMP "btn[1]" SITE "R1"; # FIRE1
@@ -58,7 +58,7 @@ IOBUF  PORT "btn[3]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "btn[4]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "btn[5]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "btn[6]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## DIP switch "blinkey", "gpio" sheet
 LOCATE COMP "sw[0]" SITE "E8"; # SW1
 LOCATE COMP "sw[1]" SITE "D8"; # SW2
@@ -68,7 +68,7 @@ IOBUF  PORT "sw[0]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "sw[1]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "sw[2]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "sw[3]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## SPI OLED DISPLAY SSD1331 (Color) or SSD1306 (B/W) "blinkey", "usb" sheet
 LOCATE COMP "oled_clk" SITE "P4";
 LOCATE COMP "oled_mosi" SITE "P3";
@@ -80,7 +80,7 @@ IOBUF  PORT "oled_mosi" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "oled_dc" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "oled_resn" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "oled_csn" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## SPI Flash chip "flash" sheet
 LOCATE COMP "flash_csn" SITE "R2";
 LOCATE COMP "flash_clk" SITE "U3";
@@ -108,7 +108,7 @@ IOBUF  PORT "flash_wpn" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 #IOBUF  PORT "flash_cfg_select[0]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
 #IOBUF  PORT "flash_cfg_select[1]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
 #IOBUF  PORT "flash_cfg_select[2]" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## SD card "sdcard", "usb" sheet
 LOCATE COMP "sd_clk" SITE "J1"; # sd_clk WiFi_GPIO14
 LOCATE COMP "sd_cmd" SITE "J3"; # sd_cmd_di (MOSI) WiFi GPIO15
@@ -126,7 +126,7 @@ IOBUF  PORT "sd_d[2]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4; # WiFi GPIO12 pull
 IOBUF  PORT "sd_d[3]" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "sd_wp" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "sd_cdn" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## ADC SPI (MAX11123) "analog", "ram" sheet
 LOCATE COMP "adc_csn" SITE "R17";
 LOCATE COMP "adc_mosi" SITE "R16";
@@ -136,7 +136,7 @@ IOBUF  PORT "adc_csn" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "adc_mosi" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "adc_miso" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "adc_sclk" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## Audio 4-bit DAC "analog", "gpio" sheet
 # 4-bit mode can drive down to 75 ohm load impedance.
 # Lower impedance leads to IO overload, 
@@ -167,7 +167,7 @@ IOBUF  PORT "audio_v[3]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "audio_v[2]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "audio_v[1]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "audio_v[0]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## WiFi ESP-32 "wifi", "usb", "flash" sheet
 # other pins are shared with GP/GN, SD card and JTAG
 LOCATE COMP "wifi_en" SITE "F1"; # enable/reset WiFi
@@ -185,17 +185,17 @@ IOBUF  PORT "wifi_gpio0" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "wifi_gpio16" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF  PORT "wifi_gpio17" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 # IOBUF  PORT "prog_done" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## PCB antenna 433 MHz (may be also used for FM) "usb" sheet
 LOCATE COMP "ant_433mhz" SITE "G1";
 IOBUF  PORT "ant_433mhz" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## Second USB port going directly into FPGA "usb", "ram" sheet
 LOCATE COMP "usb_fpga_dp" SITE "E16";
 LOCATE COMP "usb_fpga_dn" SITE "F16";
 IOBUF  PORT "usb_fpga_dp" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=16;
 IOBUF  PORT "usb_fpga_dn" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=16;
-
+#
 ## JTAG ESP-32 "usb" sheet
 # connected to FT231X and ESP-32
 # commented out because those are dedicated pins, not directly useable as GPIO
@@ -208,7 +208,7 @@ IOBUF  PORT "usb_fpga_dn" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=16;
 #IOBUF  PORT "jtag_tdo" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 #IOBUF  PORT "jtag_tck" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 #IOBUF  PORT "jtag_tms" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## SDRAM "ram" sheet
 LOCATE COMP "sdram_clk" SITE "F19";
 LOCATE COMP "sdram_cke" SITE "F20";
@@ -288,7 +288,7 @@ IOBUF PORT "sdram_d[12]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF PORT "sdram_d[13]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF PORT "sdram_d[14]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF PORT "sdram_d[15]" PULLMODE=NONE IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 # GPDI differential interface (Video) "gpdi" sheet
 LOCATE COMP "gpdi_dp[0]" SITE "A16"; # Blue +
 LOCATE COMP "gpdi_dn[0]" SITE "B16"; # Blue -
@@ -316,7 +316,7 @@ IOBUF PORT "gpdi_ethn" IO_TYPE=LVCMOS33D DRIVE=4;
 IOBUF PORT "gpdi_cec" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF PORT "gpdi_sda" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF PORT "gpdi_scl" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 # GPIO (default single-ended) "gpio", "ram", "gpdi" sheet
 # Pins enumerated gp[0-27], gn[0-27].
 # With differential mode enabled on Lattice,
@@ -435,8 +435,9 @@ IOBUF PORT  "gp[26]" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF PORT  "gn[26]" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF PORT  "gp[27]" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
 IOBUF PORT  "gn[27]" PULLMODE=UP IO_TYPE=LVCMOS33 DRIVE=4;
-
+#
 ## SHUTDOWN "power", "ram" sheet (connected from PCB v1.7.5)
 # on PCB v1.7 shutdown is not connected to FPGA
 LOCATE COMP "shutdown" SITE "G16"; # FPGA receives
 IOBUF  PORT "shutdown" PULLMODE=DOWN IO_TYPE=LVCMOS33 DRIVE=4;
+#
